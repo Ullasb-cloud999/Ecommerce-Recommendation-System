@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SmartCart Recommendation System</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>SmartCart Recommendation System</h1>
+
+        <form method="POST">
+
+            <select name="product">
+
+                {% for product in products %}
+
+                <option value="{{ product }}">
+                    {{ product }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <br><br>
+
+            <button type="submit">
+                Recommend
+            </button>
+
+        </form>
+
+        {% if recommendations %}
+
+        <h2>Recommended Products:</h2>
+
+        <ul>
+
+            {% for item in recommendations %}
+
+            <li>{{ item }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
